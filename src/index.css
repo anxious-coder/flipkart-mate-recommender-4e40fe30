@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -35,19 +36,12 @@
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -98,4 +92,117 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Custom styles for Style Mate */
+.style-mate-app {
+  @apply min-h-screen max-w-md mx-auto bg-white;
+}
+
+.product-image-container {
+  background-color: #fff6e0;
+  @apply relative overflow-hidden rounded-none;
+}
+
+.product-image {
+  @apply object-cover w-full transition-all duration-500;
+}
+
+.product-image.zoom-on-load {
+  animation: zoom-fade-in 0.8s ease-out forwards;
+}
+
+@keyframes zoom-fade-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.attribute-pill {
+  @apply flex items-center gap-2 px-4 py-2 bg-white rounded-pill shadow-pill transition-all duration-300 hover:shadow-lg active:scale-95;
+}
+
+.attribute-pill-active {
+  @apply bg-flipkart-lightblue border-flipkart-blue;
+}
+
+.attribute-pill-icon {
+  @apply w-8 h-8 rounded-full object-cover bg-gray-100 overflow-hidden;
+}
+
+.product-card {
+  @apply bg-white rounded-md shadow-product transition-all duration-300 overflow-hidden;
+}
+
+.product-card:hover {
+  @apply shadow-lg transform scale-[1.02];
+}
+
+.price-original {
+  @apply text-price-original line-through;
+}
+
+.price-current {
+  @apply text-black font-semibold;
+}
+
+.price-discount {
+  @apply text-price-discount font-medium;
+}
+
+.back-button {
+  @apply absolute z-10 top-4 left-4 bg-white/90 backdrop-blur-sm p-2 rounded-full shadow-md;
+  animation: fade-in-button 0.5s ease-out 0.2s both;
+}
+
+@keyframes fade-in-button {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.header-container {
+  @apply fixed top-0 left-0 right-0 z-50 bg-black text-white p-4 shadow-header;
+}
+
+.similar-products-section {
+  @apply mt-6 pb-20;
+}
+
+.similar-products-header {
+  @apply flex items-baseline justify-between mb-4 mx-4;
+}
+
+.similar-products-grid {
+  @apply grid grid-cols-2 gap-3 px-3;
+}
+
+.like-button {
+  @apply absolute top-2 right-2 z-10 p-1 rounded-full bg-white/80 backdrop-blur-sm shadow-sm;
+}
+
+/* Transition animations for the recommendation section */
+.recommendations-container {
+  @apply transition-all duration-500;
+}
+
+.recommendations-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.recommendations-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 400ms, transform 400ms;
 }
